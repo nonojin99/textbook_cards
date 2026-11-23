@@ -1,20 +1,26 @@
 {
- "checked": "2026-11-24T05:08+09:00",
+ "checked": "2026-11-24T05:38+09:00",
  "accounts": {
   "dongyang": {
    "expect": "dongyang.cards",
-   "ok": false,
-   "error": "HTTP 0: @dongyang.cards 계정을 이 토큰으로 찾지 못함 — assigned_instagram_accounts: threekingdoms.illustrated | me/accounts:  | graph.instagram.com/me: HTTP 400: {\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AqcAR39aSJOXtoMq7z13PGF\"}}"
+   "ok": true,
+   "username": "dongyang.cards",
+   "api": "graph.facebook.com",
+   "quota": 0
   },
   "fresco": {
    "expect": "fresco.myth",
-   "ok": false,
-   "error": "HTTP 0: @fresco.myth 계정을 이 토큰으로 찾지 못함 — assigned_instagram_accounts: threekingdoms.illustrated | me/accounts:  | graph.instagram.com/me: HTTP 400: {\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AfDkLD7ZD83GzaktsAudom1\"}}"
+   "ok": true,
+   "username": "fresco.myth",
+   "api": "graph.facebook.com",
+   "quota": 0
   },
   "why": {
    "expect": "why.middleschool",
-   "ok": false,
-   "error": "HTTP 0: @why.middleschool 계정을 이 토큰으로 찾지 못함 — assigned_instagram_accounts: myths.illustrated | me/accounts:  | graph.instagram.com/me: HTTP 400: {\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"ADkfOFnpQE5mFa65rkKgHPb\"}}"
+   "ok": true,
+   "username": "why.middleschool",
+   "api": "graph.facebook.com",
+   "quota": 0
   },
   "tken": {
    "expect": "threekingdoms.illustrated",
