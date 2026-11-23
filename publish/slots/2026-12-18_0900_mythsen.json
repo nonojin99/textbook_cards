@@ -1,0 +1,11 @@
+{
+ "requests": [
+  {
+   "account": "mythsen",
+   "kind": "carousel",
+   "media": "cards/2026-12-18_mythsen/1_1-6",
+   "caption": "captions/2026-12-18_mythsen_1.txt"
+  }
+ ],
+ "note": "myths.illustrated 2026-12-18"
+}

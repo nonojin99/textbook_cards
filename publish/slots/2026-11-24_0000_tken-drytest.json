@@ -1,0 +1,4 @@
+{"requests": [
+ {"account": "tken", "kind": "carousel", "media": "cards/2026-11-30_tken/5_5-1", "caption": "captions/2026-11-30_tken_5.txt"},
+ {"account": "why", "kind": "carousel", "media": "cards/2026-12-02_why/1_1-1", "caption": "captions/2026-12-02_why_1.txt"}
+], "note": "연동 시험(dry run) — 지울 것"}

@@ -1,0 +1,11 @@
+{
+ "requests": [
+  {
+   "account": "tken",
+   "kind": "carousel",
+   "media": "cards/2026-12-10_tken/1_1-4",
+   "caption": "captions/2026-12-10_tken_1.txt"
+  }
+ ],
+ "note": "threekingdoms.illustrated 2026-12-10"
+}

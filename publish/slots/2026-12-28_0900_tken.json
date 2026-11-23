@@ -1,0 +1,29 @@
+{
+ "requests": [
+  {
+   "account": "tken",
+   "kind": "image",
+   "media": "cards/2026-12-28_tken/1_1-2-03",
+   "caption": "captions/2026-12-28_tken_1.txt"
+  },
+  {
+   "account": "tken",
+   "kind": "image",
+   "media": "cards/2026-12-28_tken/2_2-2-02",
+   "caption": "captions/2026-12-28_tken_2.txt"
+  },
+  {
+   "account": "tken",
+   "kind": "image",
+   "media": "cards/2026-12-28_tken/3_3-2-01",
+   "caption": "captions/2026-12-28_tken_3.txt"
+  },
+  {
+   "account": "tken",
+   "kind": "carousel",
+   "media": "cards/2026-12-28_tken/4_4-9",
+   "caption": "captions/2026-12-28_tken_4.txt"
+  }
+ ],
+ "note": "threekingdoms.illustrated 2026-12-28"
+}

@@ -1,0 +1,35 @@
+{
+ "requests": [
+  {
+   "account": "mythsen",
+   "kind": "image",
+   "media": "cards/2026-12-01_mythsen/1",
+   "caption": "captions/2026-12-01_mythsen_1.txt"
+  },
+  {
+   "account": "mythsen",
+   "kind": "image",
+   "media": "cards/2026-12-01_mythsen/2_2-1-03",
+   "caption": "captions/2026-12-01_mythsen_2.txt"
+  },
+  {
+   "account": "mythsen",
+   "kind": "image",
+   "media": "cards/2026-12-01_mythsen/3_3-1-02",
+   "caption": "captions/2026-12-01_mythsen_3.txt"
+  },
+  {
+   "account": "mythsen",
+   "kind": "image",
+   "media": "cards/2026-12-01_mythsen/4_4-1-01",
+   "caption": "captions/2026-12-01_mythsen_4.txt"
+  },
+  {
+   "account": "mythsen",
+   "kind": "carousel",
+   "media": "cards/2026-12-01_mythsen/5_5-1",
+   "caption": "captions/2026-12-01_mythsen_5.txt"
+  }
+ ],
+ "note": "myths.illustrated 2026-12-01"
+}

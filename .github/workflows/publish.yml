@@ -1,0 +1,50 @@
+name: Publish scheduled posts
+
+# 30분마다 publish/slots/<오늘>_<HHMM>_*.json 중 시각이 지난 항목을 올린다(GitHub 예약 실행은 늦게 돌 수 있어 촘촘히).
+# publish/LIVE 파일이 없으면 dry run(확인만). 수동 실행: Actions → Run workflow (force_dry=1 이면 LIVE 여도 확인만).
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+    inputs:
+      force_dry:
+        description: '1 이면 확인만'
+        required: false
+        default: '0'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: textbook-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish due slots
+        env:
+          IG_DONGYANG_ACCESS_TOKEN: ${{ secrets.IG_DONGYANG_ACCESS_TOKEN }}
+          IG_FRESCO_ACCESS_TOKEN: ${{ secrets.IG_FRESCO_ACCESS_TOKEN }}
+          IG_WHY_ACCESS_TOKEN: ${{ secrets.IG_WHY_ACCESS_TOKEN }}
+          IG_TKEN_ACCESS_TOKEN: ${{ secrets.IG_TKEN_ACCESS_TOKEN }}
+          IG_MYTHSEN_ACCESS_TOKEN: ${{ secrets.IG_MYTHSEN_ACCESS_TOKEN }}
+          EXPECT_DONGYANG_USERNAME: ${{ vars.EXPECT_DONGYANG_USERNAME }}
+          EXPECT_FRESCO_USERNAME: ${{ vars.EXPECT_FRESCO_USERNAME }}
+          EXPECT_WHY_USERNAME: ${{ vars.EXPECT_WHY_USERNAME }}
+          EXPECT_TKEN_USERNAME: ${{ vars.EXPECT_TKEN_USERNAME }}
+          EXPECT_MYTHSEN_USERNAME: ${{ vars.EXPECT_MYTHSEN_USERNAME }}
+          FORCE_DRY: ${{ github.event.inputs.force_dry }}
+        run: python3 .github/scripts/publish_slots.py
+      - name: Record
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add publish/.done.json 2>/dev/null || exit 0
+          git diff --staged --quiet && exit 0
+          git commit -q -m "게시 기록 [skip ci]"
+          for i in 1 2 3; do git push -q && exit 0; git pull -q --rebase origin main; done

@@ -1,0 +1,35 @@
+{
+ "requests": [
+  {
+   "account": "dongyang",
+   "kind": "image",
+   "media": "cards/2026-11-30_dongyang/1",
+   "caption": "captions/2026-11-30_dongyang_1.txt"
+  },
+  {
+   "account": "dongyang",
+   "kind": "image",
+   "media": "cards/2026-11-30_dongyang/2_2-1-03",
+   "caption": "captions/2026-11-30_dongyang_2.txt"
+  },
+  {
+   "account": "dongyang",
+   "kind": "image",
+   "media": "cards/2026-11-30_dongyang/3_3-1-02",
+   "caption": "captions/2026-11-30_dongyang_3.txt"
+  },
+  {
+   "account": "dongyang",
+   "kind": "image",
+   "media": "cards/2026-11-30_dongyang/4_4-1-01",
+   "caption": "captions/2026-11-30_dongyang_4.txt"
+  },
+  {
+   "account": "dongyang",
+   "kind": "carousel",
+   "media": "cards/2026-11-30_dongyang/5_5-1",
+   "caption": "captions/2026-11-30_dongyang_5.txt"
+  }
+ ],
+ "note": "dongyang.cards 2026-11-30"
+}

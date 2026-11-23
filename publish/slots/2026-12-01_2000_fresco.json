@@ -1,0 +1,35 @@
+{
+ "requests": [
+  {
+   "account": "fresco",
+   "kind": "image",
+   "media": "cards/2026-12-01_fresco/1",
+   "caption": "captions/2026-12-01_fresco_1.txt"
+  },
+  {
+   "account": "fresco",
+   "kind": "image",
+   "media": "cards/2026-12-01_fresco/2_2-1-03",
+   "caption": "captions/2026-12-01_fresco_2.txt"
+  },
+  {
+   "account": "fresco",
+   "kind": "image",
+   "media": "cards/2026-12-01_fresco/3_3-1-02",
+   "caption": "captions/2026-12-01_fresco_3.txt"
+  },
+  {
+   "account": "fresco",
+   "kind": "image",
+   "media": "cards/2026-12-01_fresco/4_4-1-01",
+   "caption": "captions/2026-12-01_fresco_4.txt"
+  },
+  {
+   "account": "fresco",
+   "kind": "carousel",
+   "media": "cards/2026-12-01_fresco/5_5-1",
+   "caption": "captions/2026-12-01_fresco_5.txt"
+  }
+ ],
+ "note": "fresco.myth 2026-12-01"
+}

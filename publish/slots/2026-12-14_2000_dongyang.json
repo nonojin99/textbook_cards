@@ -1,0 +1,11 @@
+{
+ "requests": [
+  {
+   "account": "dongyang",
+   "kind": "carousel",
+   "media": "cards/2026-12-14_dongyang/1_1-5",
+   "caption": "captions/2026-12-14_dongyang_1.txt"
+  }
+ ],
+ "note": "dongyang.cards 2026-12-14"
+}

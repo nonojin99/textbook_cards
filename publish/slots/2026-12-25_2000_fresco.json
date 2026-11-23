@@ -1,0 +1,17 @@
+{
+ "requests": [
+  {
+   "account": "fresco",
+   "kind": "carousel",
+   "media": "cards/2026-12-25_fresco/1_1-8",
+   "caption": "captions/2026-12-25_fresco_1.txt"
+  },
+  {
+   "account": "fresco",
+   "kind": "image",
+   "media": "cards/2026-12-25_fresco/2_2-1",
+   "caption": "captions/2026-12-25_fresco_2.txt"
+  }
+ ],
+ "note": "fresco.myth 2026-12-25"
+}

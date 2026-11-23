@@ -1,0 +1,11 @@
+{
+ "requests": [
+  {
+   "account": "why",
+   "kind": "carousel",
+   "media": "cards/2027-01-02_why/1_1-5",
+   "caption": "captions/2027-01-02_why_1.txt"
+  }
+ ],
+ "note": "why.middleschool 2027-01-02"
+}
