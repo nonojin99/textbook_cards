@@ -3,6 +3,9 @@ name: Publish scheduled posts
 # 30분마다 publish/slots/<오늘>_<HHMM>_*.json 중 시각이 지난 항목을 올린다(GitHub 예약 실행은 늦게 돌 수 있어 촘촘히).
 # publish/LIVE 파일이 없으면 dry run(확인만). 수동 실행: Actions → Run workflow (force_dry=1 이면 LIVE 여도 확인만).
 on:
+  push:
+    branches: [main]
+    paths: ['publish/run.txt']   # 이 파일을 바꿔 push 하면 바로 한 번 돈다
   schedule:
     - cron: '7,37 * * * *'
   workflow_dispatch:
