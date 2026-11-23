@@ -1,0 +1,45 @@
+name: Check accounts
+
+# 5개 계정 토큰이 맞는 계정을 가리키는지 확인한다(게시 없음). 결과: status/accounts.json
+on:
+  push:
+    branches: [main]
+    paths: ['accounts.json', '.github/scripts/ig.py', '.github/scripts/check_accounts.py', 'status/recheck.txt']
+  workflow_dispatch:
+  schedule:
+    - cron: '0 23 * * 1'   # 매주 화 08:00 KST — 토큰 만료 조기 발견
+
+permissions:
+  contents: write
+
+concurrency:
+  group: textbook-publish
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check
+        env:
+          IG_DONGYANG_ACCESS_TOKEN: ${{ secrets.IG_DONGYANG_ACCESS_TOKEN }}
+          IG_FRESCO_ACCESS_TOKEN: ${{ secrets.IG_FRESCO_ACCESS_TOKEN }}
+          IG_WHY_ACCESS_TOKEN: ${{ secrets.IG_WHY_ACCESS_TOKEN }}
+          IG_TKEN_ACCESS_TOKEN: ${{ secrets.IG_TKEN_ACCESS_TOKEN }}
+          IG_MYTHSEN_ACCESS_TOKEN: ${{ secrets.IG_MYTHSEN_ACCESS_TOKEN }}
+          EXPECT_DONGYANG_USERNAME: ${{ vars.EXPECT_DONGYANG_USERNAME }}
+          EXPECT_FRESCO_USERNAME: ${{ vars.EXPECT_FRESCO_USERNAME }}
+          EXPECT_WHY_USERNAME: ${{ vars.EXPECT_WHY_USERNAME }}
+          EXPECT_TKEN_USERNAME: ${{ vars.EXPECT_TKEN_USERNAME }}
+          EXPECT_MYTHSEN_USERNAME: ${{ vars.EXPECT_MYTHSEN_USERNAME }}
+        run: python3 .github/scripts/check_accounts.py
+      - name: Save result
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add status/accounts.json 2>/dev/null || exit 0
+          git diff --staged --quiet && exit 0
+          git commit -q -m "계정 연동 확인 결과 [skip ci]"
+          for i in 1 2 3; do git push -q && exit 0; git pull -q --rebase origin main; done
