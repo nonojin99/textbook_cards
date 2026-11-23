@@ -93,6 +93,7 @@ def publish(req):
 def main():
     print(f"{NOW:%Y-%m-%d %H:%M} KST · {'LIVE' if LIVE else 'DRY RUN (publish/LIVE 없음)'}")
     fails = 0
+    report = {"run": NOW.isoformat(timespec="minutes"), "live": LIVE, "results": {}}
     slots = sorted((ROOT / "publish/slots").glob("*.json"))
     for f in slots:
         day, hhmm = f.name[:10], f.name[11:15]
@@ -107,6 +108,7 @@ def main():
             try:
                 res = publish(req)
                 print("   →", res)
+                report["results"][key] = res
                 if LIVE:
                     done[key] = res
                     DONE_F.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -114,10 +116,14 @@ def main():
             except ApiError as e:
                 fails += 1
                 print(f"::error::{key}: {e}")
+                report["results"][key] = f"FAIL: {str(e)[:300]}"
                 if LIVE:
                     done[key] = f"failed: {str(e)[:200]}"
                     DONE_F.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding="utf-8")
                 break   # 순서가 중요하므로 같은 파일의 뒤 요청은 다음 실행에서
+    if report["results"]:
+        (ROOT / "status").mkdir(exist_ok=True)
+        (ROOT / "status/last_run.json").write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     sys.exit(1 if fails else 0)
 
 
