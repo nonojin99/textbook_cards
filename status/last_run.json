@@ -1,0 +1,8 @@
+{
+ "run": "2026-11-24T05:43+09:00",
+ "live": false,
+ "results": {
+  "2026-11-24_0000_tken-drytest.json#1": "dry-run ok",
+  "2026-11-24_0000_tken-drytest.json#2": "dry-run ok"
+ }
+}
