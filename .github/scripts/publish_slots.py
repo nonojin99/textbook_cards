@@ -13,7 +13,10 @@ KST = datetime.timezone(datetime.timedelta(hours=9))
 NOW = datetime.datetime.now(KST)
 TODAY = NOW.strftime("%Y-%m-%d")
 LIVE = (ROOT / "publish/LIVE").exists() and os.environ.get("FORCE_DRY", "") != "1"
-PUBLIC = os.environ.get("PUBLIC_BASE", "https://raw.githubusercontent.com/nonojin99/textbook_cards/main").rstrip("/")
+# 공개 주소: jsDelivr(커밋 고정). raw.githubusercontent 는 MP4 를 octet-stream 으로 줘서 인스타가 거부할 수 있다.
+# 커밋 SHA 로 고정하므로 캐시된 옛 카드가 올라갈 일이 없다.
+_SHA = os.environ.get("GITHUB_SHA", "main")
+PUBLIC = os.environ.get("PUBLIC_BASE", f"https://cdn.jsdelivr.net/gh/nonojin99/textbook_cards@{_SHA}").rstrip("/")
 GAP = int(os.environ.get("GAP_SEC", "75"))
 DONE_F = ROOT / "publish/.done.json"
 done = json.loads(DONE_F.read_text(encoding="utf-8")) if DONE_F.exists() else {}
