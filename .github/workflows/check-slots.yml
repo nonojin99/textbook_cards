@@ -1,0 +1,16 @@
+name: Check slots
+
+# 예약 파일·카드·캡션이 push 될 때 게시 전 검사를 돌린다(게시 당일 20:00 에 실패하지 않게 미리 잡기).
+on:
+  push:
+    branches: [main]
+    paths: ['publish/slots/**', 'captions/**', 'cards/**', 'tools/check_slots.py']
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/check_slots.py
